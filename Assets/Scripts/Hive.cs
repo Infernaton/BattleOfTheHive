@@ -138,4 +138,19 @@ public class Hive : LifeForm
         if (Compare.GameObjects(getCurrentPrimaryTarget.gameObject, gameObject)) 
             DefinePrimaryTarget(spawn.Type);
     }
+
+    #region Controller
+    public void ToggleWorkerSpawner()
+    {
+        m_WorkersSpawnerActivated = !m_WorkersSpawnerActivated;
+    }
+    public void ToggleWarriorSpawner()
+    {
+        m_WarriorsSpawnerActivated = !m_WarriorsSpawnerActivated;
+    }
+    public void ToggleTitanSpawner()
+    {
+        m_TitansSpawnerActivated = !m_TitansSpawnerActivated;
+    }
+    #endregion
 }
