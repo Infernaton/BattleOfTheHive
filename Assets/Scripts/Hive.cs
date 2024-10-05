@@ -21,12 +21,18 @@ public class Hive : LifeForm
         if (m_Minion.canSpawn) Spawn(m_Minion);
     }
 
-    void Spawn(ScriptableSpawnType spawn)
+    private void Spawn(ScriptableSpawnType spawn)
     {
         if (Time.time - spawn.CurrentTime >= 1f / spawn.CooldownTime)
         {
             Instantiate(spawn.Spawn);
             spawn.ResetCooldownTimer();
         }
+    }
+
+    public void OnDying()
+    {
+        // Todo gameover manager
+        Debug.Log("GameOver");
     }
 }

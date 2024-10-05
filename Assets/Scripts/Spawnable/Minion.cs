@@ -36,4 +36,9 @@ public class Minion : LifeForm
     {
         base.Update();
     }
+
+    public void OnDying()
+    {
+        Destroy(gameObject);
+    }
 }

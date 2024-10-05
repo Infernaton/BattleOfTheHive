@@ -5,6 +5,7 @@ public class LifeForm : MonoBehaviour
 {
     [Header("LifeForm")]
     [SerializeField] protected float m_HealthBase;
+    [SerializeField] protected UnityEvent m_OnDying;
 
     protected float _currentHealth;
     protected float _currentMaxHealth;
@@ -21,9 +22,10 @@ public class LifeForm : MonoBehaviour
 
     protected void Update()
     {
-        if ((_currentHealth <= 0 || transform.position.y <= -1) && !_isDead)
+        if ((_currentHealth <= 0 || transform.position.y <= -1) && m_OnDying != null && !_isDead)
         {
             _isDead = true;
+            m_OnDying.Invoke();
         }
     }
 
