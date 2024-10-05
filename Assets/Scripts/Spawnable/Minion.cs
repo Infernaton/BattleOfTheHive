@@ -29,7 +29,7 @@ public class Minion : LifeForm
 
     private void FixedUpdate()
     {
-        _rg.AddForce(new Vector3(m_MovementSpeed, _rg.velocity.y, m_MovementSpeed), ForceMode.Impulse);
+        _rg.velocity = new Vector3(m_MovementSpeed, _rg.velocity.y, _rg.velocity.z);
     }
 
     private new void Update()
