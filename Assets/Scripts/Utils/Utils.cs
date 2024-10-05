@@ -4,7 +4,7 @@ namespace Utils
 {
     public enum SpawnType
     {
-        Minion,
+        Worker,
         Warrior,
         Titan
     }

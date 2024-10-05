@@ -6,11 +6,11 @@ using Utils;
 
 public class Hive : LifeForm
 {
-    [Header("Minion")]
-    [SerializeField] ScriptableSpawnType m_MinionScriptable;
-    [SerializeField] GameObject m_MinionsSpawner;
-    private float _lastMinionSpawnTime;
-    private GameObject _minionPrimaryTarget;
+    [Header("Worker")]
+    [SerializeField] ScriptableSpawnType m_WorkerScriptable;
+    [SerializeField] GameObject m_WorkersSpawner;
+    private float _lastWorkerSpawnTime;
+    private GameObject _workerPrimaryTarget;
 
     [Header("Warrior")]
     [SerializeField] ScriptableSpawnType m_WarriorScriptable;
@@ -31,7 +31,7 @@ public class Hive : LifeForm
     {
         return type switch
         {
-            SpawnType.Minion => _minionPrimaryTarget,
+            SpawnType.Worker => _workerPrimaryTarget,
             SpawnType.Warrior => _warriorPrimaryTarget,
             SpawnType.Titan => _titanPrimaryTarget,
             _ => gameObject
@@ -44,9 +44,9 @@ public class Hive : LifeForm
         {
             // If the spawner has children, set the first one as PrimaryTarget
             // else, this Hive become the PrimaryTarget
-            case SpawnType.Minion:
-                if (m_MinionsSpawner.transform.childCount > 0) _minionPrimaryTarget = m_MinionsSpawner.transform.GetChild(0).gameObject;
-                else _minionPrimaryTarget = gameObject;
+            case SpawnType.Worker:
+                if (m_WorkersSpawner.transform.childCount > 0) _workerPrimaryTarget = m_WorkersSpawner.transform.GetChild(0).gameObject;
+                else _workerPrimaryTarget = gameObject;
                 break;
             case SpawnType.Warrior:
                 if (m_WarriorsSpawner.transform.childCount > 0) _warriorPrimaryTarget = m_WarriorsSpawner.transform.GetChild(0).gameObject;
@@ -63,8 +63,8 @@ public class Hive : LifeForm
     {
         base.Start();
 
-        _lastMinionSpawnTime = Time.time;
-        _minionPrimaryTarget = gameObject;
+        _lastWorkerSpawnTime = Time.time;
+        _workerPrimaryTarget = gameObject;
 
         _lastWarriorSpawnTime = Time.time;
         _warriorPrimaryTarget = gameObject;
@@ -79,17 +79,28 @@ public class Hive : LifeForm
 
         #region Spawner Related
         if (!m_IsSpawnerActivated) return;
-        if (Time.time - _lastMinionSpawnTime >= 1f / m_MinionScriptable.CooldownTime) 
+
+        if (Time.time - _lastWorkerSpawnTime >= 1f / m_WorkerScriptable.CooldownTime) 
         {
-            Spawn(m_MinionScriptable, m_MinionsSpawner.transform);
-            _lastMinionSpawnTime = Time.time;
+            Spawn(m_WorkerScriptable, m_WorkersSpawner.transform);
+            _lastWorkerSpawnTime = Time.time;
+        }
+        if (Time.time - _lastWarriorSpawnTime >= 1f / m_WarriorScriptable.CooldownTime)
+        {
+            Spawn(m_WarriorScriptable, m_WarriorsSpawner.transform);
+            _lastWarriorSpawnTime = Time.time;
+        }
+        if (Time.time - _lastTitanSpawnTime >= 1f / m_TitanScriptable.CooldownTime)
+        {
+            Spawn(m_TitanScriptable, m_TitansSpawner.transform);
+            _lastTitanSpawnTime = Time.time;
         }
         #endregion
     }
 
     private void Spawn(ScriptableSpawnType spawn, Transform spawnerLocation)
     {
-        Minion newSpawn = Instantiate(spawn.Spawn, spawnerLocation);
+        Minion newSpawn = Instantiate(spawn.MinionGameObject, spawnerLocation);
         newSpawn.ParentHive = this;
         newSpawn.SpawnType = spawn.Type;
 
@@ -98,12 +109,4 @@ public class Hive : LifeForm
         if (Compare.GameObjects(getCurrentPrimaryTarget, gameObject)) 
             DefinePrimaryTarget(spawn.Type);
     }
-
-    #region Debug
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(m_MinionsSpawner.transform.position, 0.2f);
-    }
-    #endregion
 }

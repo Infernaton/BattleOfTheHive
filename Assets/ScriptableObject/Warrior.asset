@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 437196ddf1c8e2a489dd8891fdcf494c, type: 3}
-  m_Name: Minion
+  m_Name: Warrior
   m_EditorClassIdentifier: 
-  Spawn: {fileID: 1315822256473162503, guid: 1152a105b64f2f64b991c22addca55f1, type: 3}
-  CooldownTime: 0.5
-  Type: 0
-  canSpawn: 1
+  MinionGameObject: {fileID: 2572891984077624254, guid: 6375e3e79c52c83438f99a970cb0bb93, type: 3}
+  CooldownTime: 2.5
+  Type: 1
