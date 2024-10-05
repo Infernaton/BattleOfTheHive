@@ -38,7 +38,7 @@ public class Minion : LifeForm
     private void FixedUpdate()
     {
         // If the target is can be hit, we don't need to move further
-        if(!_canHitTarget) _rg.MovePosition(transform.position + (m_MovementSpeed * Time.deltaTime) * transform.forward);
+        if(!_canHitTarget && GameManager.Instance.IsGameActive) _rg.MovePosition(transform.position + (m_MovementSpeed * Time.deltaTime) * transform.forward);
     }
 
     private new void Update()

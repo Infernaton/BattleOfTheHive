@@ -94,7 +94,7 @@ public class Hive : LifeForm
         UpdatePrimaryTarget();
 
         #region Spawner Related
-        if (!m_IsSpawnerActivated) return;
+        if (!m_IsSpawnerActivated || !GameManager.Instance.IsGameActive) return;
 
         if (m_WorkersSpawnerActivated && Time.time - _lastWorkerSpawnTime >= m_WorkerScriptable.CooldownTime) 
         {

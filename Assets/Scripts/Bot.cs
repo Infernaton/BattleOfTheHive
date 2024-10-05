@@ -27,7 +27,7 @@ public class Bot : MonoBehaviour
     
     void Update()
     {
-        if ( Time.time - _last_update_time > m_update_time)
+        if ( Time.time - _last_update_time > m_update_time && GameManager.Instance.IsGameActive)
         {
             _last_update_time = Time.time;
             int rand_value = UnityEngine.Random.Range(0, 3);
