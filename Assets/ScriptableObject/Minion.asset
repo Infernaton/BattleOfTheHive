@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Spawn: {fileID: 5720777157180513911, guid: 1152a105b64f2f64b991c22addca55f1, type: 3}
   CooldownTime: 0.5
+  canSpawn: 1

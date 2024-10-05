@@ -7,18 +7,16 @@ public class Hive : LifeForm
     [Header("Spawnable")]
     [SerializeField] ScriptableSpawnType m_Minion;
 
-    // Start is called before the first frame update
-    void Start()
+    private new void Start()
     {
-        _startLifeForm();
+        base.Start();
 
         m_Minion.ResetCooldownTimer();
     }
 
-    // Update is called once per frame
-    void Update()
+    private new void Update()
     {
-        _updateLifeForm();
+        base.Update();
 
         if (m_Minion.canSpawn) Spawn(m_Minion);
     }

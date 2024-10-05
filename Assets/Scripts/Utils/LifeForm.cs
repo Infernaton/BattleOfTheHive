@@ -13,13 +13,13 @@ public class LifeForm : MonoBehaviour
     public float GetMaxHealth() => _currentMaxHealth;
     public float GetCurrentHealth() => _currentHealth;
 
-    protected void _startLifeForm()
+    protected void Start()
     {
         _currentHealth = m_HealthBase;
         _currentMaxHealth = m_HealthBase;
     }
 
-    protected void _updateLifeForm()
+    protected void Update()
     {
         if ((_currentHealth <= 0 || transform.position.y <= -1) && !_isDead)
         {

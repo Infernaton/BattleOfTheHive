@@ -19,10 +19,9 @@ public class Minion : LifeForm
         return m_PrimaryTarget;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private new void Start()
     {
-        _startLifeForm();
+        base.Start();
         _currentTarget = GetTarget();
 
         _rg = GetComponent<Rigidbody>();
@@ -33,9 +32,8 @@ public class Minion : LifeForm
         _rg.AddForce(new Vector3(m_MovementSpeed, _rg.velocity.y, m_MovementSpeed), ForceMode.Impulse);
     }
 
-    // Update is called once per frame
-    void Update()
+    private new void Update()
     {
-        _updateLifeForm();
+        base.Update();
     }
 }
