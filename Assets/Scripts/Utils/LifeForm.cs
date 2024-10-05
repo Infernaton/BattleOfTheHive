@@ -8,16 +8,13 @@ public class LifeForm : MonoBehaviour
     [SerializeField] protected UnityEvent m_OnDying;
 
     protected float _currentHealth;
-    protected float _currentMaxHealth;
     private bool _isDead;
 
-    public float GetMaxHealth() => _currentMaxHealth;
     public float GetCurrentHealth() => _currentHealth;
 
     protected void Start()
     {
         _currentHealth = m_HealthBase;
-        _currentMaxHealth = m_HealthBase;
     }
 
     protected void Update()
