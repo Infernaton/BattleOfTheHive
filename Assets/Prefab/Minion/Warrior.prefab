@@ -17,12 +17,16 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1315822256473162503, guid: 1152a105b64f2f64b991c22addca55f1, type: 3}
+      propertyPath: m_AttackRange
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315822256473162503, guid: 1152a105b64f2f64b991c22addca55f1, type: 3}
       propertyPath: m_AttackDamage
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1315822256473162503, guid: 1152a105b64f2f64b991c22addca55f1, type: 3}
       propertyPath: m_MovementSpeed
-      value: 4
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 1315822256473162503, guid: 1152a105b64f2f64b991c22addca55f1, type: 3}
       propertyPath: m_PrimaryTarget

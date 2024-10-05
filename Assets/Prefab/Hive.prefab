@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HealthBase: 50
+  m_InvincibilityTime: 0
   m_OnDying:
     m_PersistentCalls:
       m_Calls:
@@ -96,10 +97,13 @@ MonoBehaviour:
         m_CallState: 2
   m_WorkerScriptable: {fileID: 11400000, guid: 75bb69cb94d270a4c8bd44e0736a42bb, type: 2}
   m_WorkersSpawner: {fileID: 1566991746919024597}
+  m_WorkersSpawnerActivated: 1
   m_WarriorScriptable: {fileID: 11400000, guid: 633ef174342fc9047bf988d3f40d0cb4, type: 2}
   m_WarriorsSpawner: {fileID: 8645448678826961867}
+  m_WarriorsSpawnerActivated: 1
   m_TitanScriptable: {fileID: 11400000, guid: 4ee5a2d584589fb41a83c490eabbc747, type: 2}
   m_TitansSpawner: {fileID: 5262800932713640812}
+  m_TitansSpawnerActivated: 1
   m_IsSpawnerActivated: 1
 --- !u!54 &1241505643775921606
 Rigidbody:
@@ -123,7 +127,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126

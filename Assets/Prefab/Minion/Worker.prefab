@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HealthBase: 2
+  m_InvincibilityTime: 0.2
   m_OnDying:
     m_PersistentCalls:
       m_Calls:
@@ -147,6 +148,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_MovementSpeed: 5
+  m_AttackRange: 1.1
   m_AttackRate: 0.5
   m_AttackDamage: 1
   m_PrimaryTarget: 1
@@ -218,7 +220,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6018616664257941650}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: de471f591fcc5cf4898b77b505aaf20b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
