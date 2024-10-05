@@ -48,12 +48,25 @@ public class Minion : LifeForm
         _currentTarget = GetTarget();
         transform.LookAt(_currentTarget.transform);
 
-        _canHitTarget = Vector3.Distance(gameObject.transform.position, _currentTarget.transform.position) <= m_AttackRange;
-
-        if (_canHitTarget && Time.time - _lastAttackTime >= m_AttackRate)
+        _canHitTarget = false;
+        if (Physics.Raycast(gameObject.transform.position, Vector3.forward, out RaycastHit hitInfo, m_AttackRange))
         {
-            _currentTarget.LoseHP(m_AttackDamage);
-            _lastAttackTime = Time.time;
+            if (hitInfo.transform.TryGetComponent<LifeForm>(out var lifeForm))
+            {
+                // If it's the ally hive, we don't want to damage it
+                if (lifeForm is Hive && Compare.GameObjects(lifeForm.gameObject, TargetManager.Instance.GetHive(HiveTarget.Ally).gameObject)) 
+                    return;
+                // If it's an ally minion, we don't want to damage it
+                if (lifeForm.gameObject.TryGetComponent<Minion>(out var m) && Compare.GameObjects(ParentHive.gameObject, m.ParentHive.gameObject))
+                    return;
+
+                _canHitTarget = true;
+                if (Time.time - _lastAttackTime >= m_AttackRate)
+                {
+                    _currentTarget.LoseHP(m_AttackDamage);
+                    _lastAttackTime = Time.time;
+                }
+            }
         }
     }
 
