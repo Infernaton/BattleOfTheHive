@@ -142,21 +142,21 @@ public class Hive : LifeForm
     #region Controller
     public void ToggleWorkerSpawner()
     {
-        m_WarriorsSpawnerActivated = false ;
-        m_TitansSpawnerActivated = false ;
-        m_WorkersSpawnerActivated = true ;
+        m_WarriorsSpawnerActivated = false;
+        m_TitansSpawnerActivated = false;
+        m_WorkersSpawnerActivated = true;
     }
     public void ToggleWarriorSpawner()
     {
-        m_WarriorsSpawnerActivated = true ;
-        m_TitansSpawnerActivated = false ;
-        m_WorkersSpawnerActivated = false ;
+        m_WarriorsSpawnerActivated = true;
+        m_TitansSpawnerActivated = false;
+        m_WorkersSpawnerActivated = false;
     }
     public void ToggleTitanSpawner()
     {
-        m_WarriorsSpawnerActivated = false ;
-        m_TitansSpawnerActivated = true ;
-        m_WorkersSpawnerActivated = false ;
+        m_WarriorsSpawnerActivated = false;
+        m_TitansSpawnerActivated = true;
+        m_WorkersSpawnerActivated = false;
     }
     #endregion
 }

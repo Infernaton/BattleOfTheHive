@@ -1,9 +1,11 @@
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class LifeForm : MonoBehaviour
 {
     [Header("LifeForm")]
+    [SerializeField] private TextMeshProUGUI m_TextMeshPro;
     [SerializeField] protected float m_HealthBase;
     [SerializeField] protected UnityEvent m_OnDying;
 
@@ -24,6 +26,8 @@ public class LifeForm : MonoBehaviour
             _isDead = true;
             m_OnDying.Invoke();
         }
+        if (m_TextMeshPro != null)
+            m_TextMeshPro.text = _currentHealth + " ♥";
     }
 
     public void LoseHP(float damage)
