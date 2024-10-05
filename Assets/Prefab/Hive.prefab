@@ -83,8 +83,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Hive, Assembly-CSharp
-        m_MethodName: 
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: GameOver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -94,8 +94,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_Minion: {fileID: 11400000, guid: 75bb69cb94d270a4c8bd44e0736a42bb, type: 2}
+  m_MinionScriptable: {fileID: 11400000, guid: 75bb69cb94d270a4c8bd44e0736a42bb, type: 2}
   m_MinionsSpawner: {fileID: 1566991746919024597}
+  m_WarriorScriptable: {fileID: 0}
+  m_WarriorsSpawner: {fileID: 0}
+  m_TitanScriptable: {fileID: 0}
+  m_TitansSpawner: {fileID: 0}
+  m_IsSpawnerActivated: 1
 --- !u!1 &3824508147509968374
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,14 +1,14 @@
 using UnityEngine;
-public enum Target
+public enum HiveTarget
 {
-    AllyHive,
-    EnemyHive
+    Ally,
+    Enemy
 }
 
 public class TargetManager : MonoBehaviour
 {
-    [SerializeField] private GameObject m_AllyHive;
-    [SerializeField] private GameObject m_EnemyHive;
+    [SerializeField] private Hive m_AllyHive;
+    [SerializeField] private Hive m_EnemyHive;
 
     public static TargetManager Instance; // A static reference to the TargetManager instance
 
@@ -20,13 +20,20 @@ public class TargetManager : MonoBehaviour
             Destroy(gameObject); // Destroy the GameObject, this component is attached to
     }
 
-    public GameObject GetGameObject(Target target)
+    public Hive GetHive(HiveTarget target)
     {
         return target switch
         {
-            Target.AllyHive => m_AllyHive,
-            Target.EnemyHive => m_EnemyHive,
+            HiveTarget.Ally => m_AllyHive,
+            HiveTarget.Enemy => m_EnemyHive,
             _ => null,
         };
+    }
+
+    public Hive GetOppositeHive(Hive hive)
+    {
+        if (Utils.Compare.GameObjects(hive.gameObject, GetHive(HiveTarget.Ally).gameObject))
+            return GetHive(HiveTarget.Enemy);
+        return GetHive(HiveTarget.Ally);
     }
 }

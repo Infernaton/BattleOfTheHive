@@ -149,7 +149,9 @@ MonoBehaviour:
   m_MovementSpeed: 5
   m_AttackRate: 0.5
   m_AttackDamage: 1
-  m_PrimaryTarget: {fileID: 0}
+  m_PrimaryTarget: 1
+  ParentHive: {fileID: 0}
+  SpawnType: 0
 --- !u!54 &8679274919079008788
 Rigidbody:
   m_ObjectHideFlags: 0
