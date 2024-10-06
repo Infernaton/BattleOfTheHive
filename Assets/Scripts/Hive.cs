@@ -159,7 +159,6 @@ public class Hive : LifeForm
         newSpawn.name = spawn.Type + "" + spawnerLocation.childCount;
 
         List<Material> mat = GetMaterialList(spawn);
-        Debug.Log(mat.Count);
         for (int i = 0; i < mat.Count; i++) 
         {
             Material[] m = newSpawn.Renderer.materials;
