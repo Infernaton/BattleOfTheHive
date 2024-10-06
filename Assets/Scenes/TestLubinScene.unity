@@ -898,8 +898,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91e4dbe6b6488ba4c88431a02b9c7448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_hive: {fileID: 897165905}
-  m_update_time: 5
+  m_Hive: {fileID: 897165905}
+  m_UpdateTime: 5
 --- !u!1 &1078076983
 GameObject:
   m_ObjectHideFlags: 0

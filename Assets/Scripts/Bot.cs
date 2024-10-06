@@ -1,46 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bot : MonoBehaviour
 {
-    [SerializeField] Hive m_hive;
-    [SerializeField] float m_update_time;
-    private float _last_update_time; 
+    [SerializeField] Hive m_Hive;
+    [SerializeField] float m_UpdateTime;
+    private float _lastUpdateTime; 
     void Start()
     {
-        _last_update_time = Time.time;
-        int rand_value = UnityEngine.Random.Range(0, 3);
-            switch (rand_value)
-            {
-                case 0:
-                    m_hive.ToggleWorkerSpawner();
-                    break;
-                case 1:
-                    m_hive.ToggleWarriorSpawner();
-                    break;
-                case 2: 
-                    m_hive.ToggleTitanSpawner();
-                    break;
-            }
+        _lastUpdateTime = Time.time;
     }
     
     void Update()
     {
-        if ( Time.time - _last_update_time > m_update_time && GameManager.Instance.IsGameActive)
+        if (GameManager.Instance.IsGameActive && Time.time - _lastUpdateTime >= m_UpdateTime)
         {
-            _last_update_time = Time.time;
+            _lastUpdateTime = Time.time;
             int rand_value = UnityEngine.Random.Range(0, 3);
             switch (rand_value)
             {
                 case 0:
-                    m_hive.ToggleWorkerSpawner();
+                    m_Hive.ToggleWorkerSpawner();
                     break;
                 case 1:
-                    m_hive.ToggleWarriorSpawner();
+                    m_Hive.ToggleWarriorSpawner();
                     break;
-                case 2: 
-                    m_hive.ToggleTitanSpawner();
+                case 2:
+                    m_Hive.ToggleTitanSpawner();
                     break;
             }
         }
