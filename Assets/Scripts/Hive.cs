@@ -91,6 +91,8 @@ public class Hive : LifeForm
 
         UpdatePrimaryTarget();
 
+        UpdateUICooldown();
+
         #region Spawner Related
         if (!m_IsSpawnerActivated || !GameManager.Instance.IsGameActive) return;
 
@@ -122,6 +124,19 @@ public class Hive : LifeForm
             DefinePrimaryTarget(target);
             _redefineTarget.Remove(target);
         }
+    }
+
+    private void UpdateUICooldown()
+    {
+        UpdateByScriptable(m_WorkerScriptable, Time.time - _lastWorkerSpawnTime);
+        UpdateByScriptable(m_WarriorScriptable, Time.time - _lastWarriorSpawnTime);
+        UpdateByScriptable(m_TitanScriptable, Time.time - _lastTitanSpawnTime);
+    }
+
+    private void UpdateByScriptable(ScriptableSpawnType script, float currentCooldown)
+    {
+        float val = (script.CooldownTime - currentCooldown) / script.CooldownTime; // To get a percentage of completion of the current cooldown
+        script.UICooldownImage.transform.localScale = new Vector3(Mathf.Lerp(0, 1, val), script.UICooldownImage.transform.localScale.y, script.UICooldownImage.transform.localScale.z);
     }
 
     private void Spawn(ScriptableSpawnType spawn, Transform spawnerLocation)

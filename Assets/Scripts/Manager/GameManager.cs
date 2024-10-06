@@ -35,18 +35,18 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         _currentGameState = GameState.EndGame;
-        m_CanvaEndGame.gameObject.SetActive(true);
+        m_CanvaEndGame.SetActive(true);
     }
 
     public void GameOver()
     {
         EndGame();
-        m_DefeatTitle.gameObject.SetActive(true);
+        m_DefeatTitle.SetActive(true);
     }
 
     public void Win()
     {
         EndGame();
-        m_VictoryTitle.gameObject.SetActive(true);
+        m_VictoryTitle.SetActive(true);
     }
 }

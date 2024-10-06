@@ -8,6 +8,19 @@ public class Bot : MonoBehaviour
     void Start()
     {
         _lastUpdateTime = Time.time;
+        int rand_value = UnityEngine.Random.Range(0, 3);
+        switch (rand_value)
+        {
+            case 0:
+                m_Hive.ToggleWorkerSpawner();
+                break;
+            case 1:
+                m_Hive.ToggleWarriorSpawner();
+                break;
+            case 2:
+                m_Hive.ToggleTitanSpawner();
+                break;
+        }
     }
     
     void Update()

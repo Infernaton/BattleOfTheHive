@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
+using Utils;
+
 public enum HiveTarget
 {
     Ally,
@@ -7,8 +10,14 @@ public enum HiveTarget
 
 public class TargetManager : MonoBehaviour
 {
+    [Header("HiveTarget")]
     [SerializeField] private Hive m_AllyHive;
     [SerializeField] private Hive m_EnemyHive;
+
+    [Header("UICooldownTarget")]
+    [SerializeField] private Image m_WorkerCooldownElement;
+    [SerializeField] private Image m_WarriorCooldownElement;
+    [SerializeField] private Image m_TitanCooldownElement;
 
     public static TargetManager Instance; // A static reference to the TargetManager instance
 
@@ -20,6 +29,7 @@ public class TargetManager : MonoBehaviour
             Destroy(gameObject); // Destroy the GameObject, this component is attached to
     }
 
+    #region Hive Target
     public Hive GetHive(HiveTarget target)
     {
         return target switch
@@ -32,8 +42,20 @@ public class TargetManager : MonoBehaviour
 
     public Hive GetOppositeHive(Hive hive)
     {
-        if (Utils.Compare.GameObjects(hive.gameObject, GetHive(HiveTarget.Ally).gameObject))
+        if (Compare.GameObjects(hive.gameObject, GetHive(HiveTarget.Ally).gameObject))
             return GetHive(HiveTarget.Enemy);
         return GetHive(HiveTarget.Ally);
+    }
+    #endregion
+
+    public Image GetCooldownObject(SpawnType target)
+    {
+        return target switch
+        {
+            SpawnType.Worker => m_WorkerCooldownElement,
+            SpawnType.Warrior => m_WarriorCooldownElement,
+            SpawnType.Titan => m_TitanCooldownElement,
+            _ => null,
+        };
     }
 }
