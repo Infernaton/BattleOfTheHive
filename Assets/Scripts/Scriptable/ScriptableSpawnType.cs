@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Utils;
 
-[CreateAssetMenu(fileName = "New SpawnType", menuName = "Hive/New SpawnType")]
+[CreateAssetMenu(fileName = "New Minion", menuName = "Minion/New Minion")]
 public class ScriptableSpawnType : ScriptableObject
 {
     public Minion MinionGameObject;

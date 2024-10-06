@@ -1,13 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Utils;
 
 public class Minion : LifeForm
 {
     [Header("Other Stats")]
+    [SerializeField] AttackPattern m_AttackPattern;
     [SerializeField] float m_MovementSpeed;
-    [SerializeField] float m_AttackRange;
-    [SerializeField] float m_AttackRate;
-    [SerializeField] float m_AttackDamage;
     [SerializeField] SpawnType m_PrimaryTarget;
 
     private LifeForm _currentTarget;
@@ -36,7 +35,7 @@ public class Minion : LifeForm
     private void FixedUpdate()
     {
         // If the target is can be hit, we don't need to move further
-        if(!_canHitTarget && GameManager.Instance.IsGameActive) _rg.MovePosition(transform.position + (m_MovementSpeed * Time.deltaTime) * transform.forward);
+        if (!_canHitTarget && GameManager.Instance.IsGameActive) _rg.MovePosition(transform.position + (m_MovementSpeed * Time.deltaTime) * transform.forward);
     }
 
     private new void Update()
@@ -44,31 +43,38 @@ public class Minion : LifeForm
         if (!GameManager.Instance.IsGameActive) return;
 
         base.Update();
-        if (_currentTarget == null) 
+        if (_currentTarget == null)
             _currentTarget = GetTarget();
         transform.LookAt(_currentTarget.transform);
 
-        _canHitTarget = false;
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, m_AttackRange))
+        List<LifeForm> hit = m_AttackPattern.GetLifeFormHit(transform, hits =>
         {
-            if (hitInfo.transform.TryGetComponent<LifeForm>(out var lifeForm))
+            List<LifeForm> filterHit = new();
+            hits.ForEach(collider =>
             {
-                // If it's the ParentHive hive, we don't want to damage it
-                if (lifeForm is Hive && Compare.GameObjects(lifeForm.gameObject, ParentHive.gameObject)) 
-                    return;
-                // If it's an ally minion, we don't want to damage it
-                if (lifeForm.gameObject.TryGetComponent<Minion>(out var m) && Compare.GameObjects(ParentHive.gameObject, m.ParentHive.gameObject))
-                    return;
-
-                //Debug.Log(gameObject.name + " -> " + lifeForm);
-
-                _canHitTarget = true;
-                if (Time.time - _lastAttackTime >= m_AttackRate)
+                //Debug.Log(gameObject.name + " collide: " + hit);
+                if (Tools.TryGetParentComponent<LifeForm>(collider, out var lifeForm))
                 {
-                    lifeForm.LoseHP(m_AttackDamage);
-                    _lastAttackTime = Time.time;
+                    // If it's the ParentHive hive, we don't want to damage it
+                    if (lifeForm is Hive && Compare.GameObjects(lifeForm.gameObject, ParentHive.gameObject))
+                        return;
+                    // If it's an ally minion, we don't want to damage it
+                    if (lifeForm.gameObject.TryGetComponent<Minion>(out var m) && Compare.GameObjects(ParentHive.gameObject, m.ParentHive.gameObject))
+                        return;
+
+                    //Debug.Log(gameObject.name + " -> " + lifeForm);
+                    filterHit.Add(lifeForm);
                 }
-            }
+            });
+            return filterHit;
+        });
+
+        _canHitTarget = m_AttackPattern.isStoppingForAttack && hit.Count > 0;
+
+        if (Time.time - _lastAttackTime >= m_AttackPattern.Rate)
+        {
+            hit.ForEach(lifeform => lifeform.LoseHP(m_AttackPattern.Damage));
+            _lastAttackTime = Time.time;
         }
     }
 
@@ -84,6 +90,6 @@ public class Minion : LifeForm
 
     public void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward * m_AttackRange);
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward * m_AttackPattern.Range);
     }
 }

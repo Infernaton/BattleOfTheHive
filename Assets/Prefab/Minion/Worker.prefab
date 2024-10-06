@@ -148,10 +148,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_AttackPattern: {fileID: 11400000, guid: 36ed44b80249e534f957306229839519, type: 2}
   m_MovementSpeed: 5
-  m_AttackRange: 1.1
-  m_AttackRate: 0.5
-  m_AttackDamage: 1
   m_PrimaryTarget: 1
   ParentHive: {fileID: 0}
   SpawnType: 0
@@ -180,7 +178,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &6018616664257941650
 GameObject:

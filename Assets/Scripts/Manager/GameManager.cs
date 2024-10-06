@@ -9,10 +9,6 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject m_CanvaEndGame;
-    [SerializeField] GameObject m_VictoryTitle;
-    [SerializeField] GameObject m_DefeatTitle;
-
     private GameState _currentGameState;
 
     public static GameManager Instance; // A static reference to the TargetManager instance
@@ -35,18 +31,18 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         _currentGameState = GameState.EndGame;
-        m_CanvaEndGame.SetActive(true);
+        MenuManager.Instance.DisplayCanvaEndGame();
     }
 
     public void GameOver()
     {
         EndGame();
-        m_DefeatTitle.SetActive(true);
+        MenuManager.Instance.DisplayDefeatTitle();
     }
 
     public void Win()
     {
         EndGame();
-        m_VictoryTitle.SetActive(true);
+        MenuManager.Instance.DisplayWinTitle();
     }
 }

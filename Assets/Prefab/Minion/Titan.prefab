@@ -250,6 +250,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2572891984077624254, guid: 6375e3e79c52c83438f99a970cb0bb93, type: 3}
+      propertyPath: m_AttackPattern
+      value: 
+      objectReference: {fileID: 11400000, guid: d9b12a8480bf8c64095cec9f407fdc79, type: 2}
+    - target: {fileID: 2572891984077624254, guid: 6375e3e79c52c83438f99a970cb0bb93, type: 3}
       propertyPath: m_MovementSpeed
       value: 4
       objectReference: {fileID: 0}

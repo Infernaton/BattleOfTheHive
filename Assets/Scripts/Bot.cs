@@ -8,7 +8,7 @@ public class Bot : MonoBehaviour
     void Start()
     {
         _lastUpdateTime = Time.time;
-        int rand_value = UnityEngine.Random.Range(0, 3);
+        int rand_value = Random.Range(0, 3);
         switch (rand_value)
         {
             case 0:
@@ -28,7 +28,7 @@ public class Bot : MonoBehaviour
         if (GameManager.Instance.IsGameActive && Time.time - _lastUpdateTime >= m_UpdateTime)
         {
             _lastUpdateTime = Time.time;
-            int rand_value = UnityEngine.Random.Range(0, 3);
+            int rand_value = Random.Range(0, 3);
             switch (rand_value)
             {
                 case 0:

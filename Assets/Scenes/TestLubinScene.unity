@@ -1893,6 +1893,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7889171129229936684, guid: dbe01fdf440392848be0967337be8868, type: 3}
+      propertyPath: m_DefeatTitle
+      value: 
+      objectReference: {fileID: 1392445868}
+    - target: {fileID: 7889171129229936684, guid: dbe01fdf440392848be0967337be8868, type: 3}
+      propertyPath: m_CanvaEndGame
+      value: 
+      objectReference: {fileID: 1834717070}
+    - target: {fileID: 7889171129229936684, guid: dbe01fdf440392848be0967337be8868, type: 3}
+      propertyPath: m_VictoryTitle
+      value: 
+      objectReference: {fileID: 655140560}
     - target: {fileID: 8527181325405256845, guid: dbe01fdf440392848be0967337be8868, type: 3}
       propertyPath: m_DefeatTitle
       value: 
