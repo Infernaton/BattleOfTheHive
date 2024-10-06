@@ -144,12 +144,28 @@ public class Hive : LifeForm
         script.UICooldownImage.transform.localScale = new Vector3(Mathf.Lerp(0, 1, val), script.UICooldownImage.transform.localScale.y, script.UICooldownImage.transform.localScale.z);
     }
 
+    private List<Material> GetMaterialList(ScriptableSpawnType spawn)
+    {
+        if (Compare.GameObjects(gameObject, TargetManager.Instance.GetHive(HiveTarget.Ally).gameObject))
+            return spawn.AllyMaterial;
+        return spawn.EnemyMaterial;
+    }
+
     private void Spawn(ScriptableSpawnType spawn, Transform spawnerLocation)
     {
         Minion newSpawn = Instantiate(spawn.MinionGameObject, spawnerLocation);
         newSpawn.ParentHive = this;
         newSpawn.SpawnType = spawn.Type;
         newSpawn.name = spawn.Type + "" + spawnerLocation.childCount;
+
+        List<Material> mat = GetMaterialList(spawn);
+        Debug.Log(mat.Count);
+        for (int i = 0; i < mat.Count; i++) 
+        {
+            Material[] m = newSpawn.Renderer.materials;
+            m[i] = mat[i];
+            newSpawn.Renderer.materials = m;
+        }
 
         //Set new Primary Target if there's none or if it's this Hive itself
         LifeForm getCurrentPrimaryTarget = GetPrimaryTarget(spawn.Type);

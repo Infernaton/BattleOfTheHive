@@ -15,3 +15,9 @@ MonoBehaviour:
   MinionGameObject: {fileID: 2572891984077624254, guid: 6375e3e79c52c83438f99a970cb0bb93, type: 3}
   CooldownTime: 2.5
   Type: 1
+  AllyMaterial:
+  - {fileID: 2100000, guid: 6de0b4a9fa4a28241927c8e8b9d70733, type: 2}
+  - {fileID: 2100000, guid: f225ba596b0ca8c4c895825a01f408f0, type: 2}
+  EnemyMaterial:
+  - {fileID: 2100000, guid: 5088dfcb250220c47824f047f728299b, type: 2}
+  - {fileID: 2100000, guid: 304473d059cbf1348ab1bcf8dee7815f, type: 2}

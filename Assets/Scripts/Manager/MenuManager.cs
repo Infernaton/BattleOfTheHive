@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField] GameObject m_MenuCanva;
+
     [SerializeField] GameObject m_CanvaEndGame;
     [SerializeField] GameObject m_VictoryTitle;
     [SerializeField] GameObject m_DefeatTitle;

@@ -14,6 +14,8 @@ public class Minion : LifeForm
     private bool _canHitTarget;
     private float _lastAttackTime;
 
+    public MeshRenderer Renderer;
+
     [HideInInspector] public Hive ParentHive;
     [HideInInspector] public SpawnType SpawnType;
 
@@ -69,7 +71,7 @@ public class Minion : LifeForm
             return filterHit;
         });
 
-        _canHitTarget = m_AttackPattern.isStoppingForAttack && hit.Count > 0;
+        _canHitTarget = !m_AttackPattern.isStoppingForAttack && hit.Count > 0;
 
         if (Time.time - _lastAttackTime >= m_AttackPattern.Rate)
         {
