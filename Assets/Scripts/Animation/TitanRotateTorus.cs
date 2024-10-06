@@ -27,10 +27,16 @@ public class TitanRotateTorus : MonoBehaviour
 
     private void Start()
     {
+        Init();
+    }
+
+    [ContextMenu("RandomRotation")]
+    void Init()
+    {
         for (int i = 0; i < m_RandomRotationTorus.Count; i++)
         {
             m_RandomRotationTorus[i].rotation = Random.rotation;
-            float speed = Random.Range(m_RotationSpeed-m_OffsetSpeed, m_RotationSpeed + m_OffsetSpeed) * Utils.Random.Sign();
+            float speed = Random.Range(m_RotationSpeed - m_OffsetSpeed, m_RotationSpeed + m_OffsetSpeed) * Utils.Random.Sign();
             Vector3 direction = m_RandomRotationTorus[i].right;
             _torusRotation.Add(new RotationOrientation(m_RandomRotationTorus[i], speed, direction));
         }
