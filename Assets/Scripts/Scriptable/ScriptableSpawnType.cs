@@ -10,4 +10,5 @@ public class ScriptableSpawnType : ScriptableObject
     public SpawnType Type;
 
     public Image UICooldownImage => TargetManager.Instance.GetCooldownObject(Type);
+    public RawImage UISelectedImage => TargetManager.Instance.GetSelectedObject(Type);
 }

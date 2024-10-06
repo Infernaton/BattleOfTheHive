@@ -91,7 +91,7 @@ public class Hive : LifeForm
 
         UpdatePrimaryTarget();
 
-        UpdateUICooldown();
+        UpdateUI();
 
         #region Spawner Related
         if (!m_IsSpawnerActivated || !GameManager.Instance.IsGameActive) return;
@@ -126,10 +126,15 @@ public class Hive : LifeForm
         }
     }
 
-    private void UpdateUICooldown()
+    private void UpdateUI()
     {
+        m_WorkerScriptable.UISelectedImage.gameObject.SetActive(m_WorkersSpawnerActivated);
         UpdateByScriptable(m_WorkerScriptable, Time.time - _lastWorkerSpawnTime);
+
+        m_WarriorScriptable.UISelectedImage.gameObject.SetActive(m_WarriorsSpawnerActivated);
         UpdateByScriptable(m_WarriorScriptable, Time.time - _lastWarriorSpawnTime);
+
+        m_TitanScriptable.UISelectedImage.gameObject.SetActive(m_TitansSpawnerActivated);
         UpdateByScriptable(m_TitanScriptable, Time.time - _lastTitanSpawnTime);
     }
 

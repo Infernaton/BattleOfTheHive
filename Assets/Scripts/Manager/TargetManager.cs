@@ -19,6 +19,11 @@ public class TargetManager : MonoBehaviour
     [SerializeField] private Image m_WarriorCooldownElement;
     [SerializeField] private Image m_TitanCooldownElement;
 
+    [Header("UISelectedTarget")]
+    [SerializeField] private RawImage m_WorkerSelectElement;
+    [SerializeField] private RawImage m_WarriorSelectElement;
+    [SerializeField] private RawImage m_TitanSelectElement;
+
     public static TargetManager Instance; // A static reference to the TargetManager instance
 
     void Awake()
@@ -55,6 +60,16 @@ public class TargetManager : MonoBehaviour
             SpawnType.Worker => m_WorkerCooldownElement,
             SpawnType.Warrior => m_WarriorCooldownElement,
             SpawnType.Titan => m_TitanCooldownElement,
+            _ => null,
+        };
+    }
+    public RawImage GetSelectedObject(SpawnType target)
+    {
+        return target switch
+        {
+            SpawnType.Worker => m_WorkerSelectElement,
+            SpawnType.Warrior => m_WarriorSelectElement,
+            SpawnType.Titan => m_TitanSelectElement,
             _ => null,
         };
     }
