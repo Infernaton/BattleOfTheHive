@@ -5,6 +5,8 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] GameObject m_MenuCanva;
 
+    [SerializeField] GameObject m_GameCanva;
+
     [SerializeField] GameObject m_CanvaEndGame;
     [SerializeField] GameObject m_VictoryTitle;
     [SerializeField] GameObject m_DefeatTitle;
@@ -22,6 +24,12 @@ public class MenuManager : MonoBehaviour
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void LaunchGame()
+    {
+        m_MenuCanva.SetActive(false);
+        m_GameCanva.SetActive(true);
     }
 
     public void DisplayCanvaEndGame()

@@ -25,7 +25,21 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _currentGameState = GameState.InGame;
+        _currentGameState = GameState.Menu;
+    }
+
+    private void Update()
+    {
+        switch (_currentGameState)
+        {
+            case GameState.Menu:
+                if (Input.GetMouseButton(0))
+                    _currentGameState = GameState.InGame;
+                    MenuManager.Instance.LaunchGame();
+                break;
+            default:
+                break;
+        }
     }
 
     public void EndGame()
