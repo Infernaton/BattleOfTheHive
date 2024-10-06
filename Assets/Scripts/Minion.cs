@@ -65,7 +65,7 @@ public class Minion : LifeForm
                 _canHitTarget = true;
                 if (Time.time - _lastAttackTime >= m_AttackRate)
                 {
-                    _currentTarget.LoseHP(m_AttackDamage);
+                    lifeForm.LoseHP(m_AttackDamage);
                     _lastAttackTime = Time.time;
                 }
             }
