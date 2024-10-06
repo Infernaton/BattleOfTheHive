@@ -75,13 +75,13 @@ public class Hive : LifeForm
     {
         base.Start();
 
-        _lastWorkerSpawnTime = Time.time;
+        _lastWorkerSpawnTime = Time.time - m_WorkerScriptable.CooldownTime;
         _workerPrimaryTarget = this;
 
-        _lastWarriorSpawnTime = Time.time;
+        _lastWarriorSpawnTime = Time.time - m_WarriorScriptable.CooldownTime;
         _warriorPrimaryTarget = this;
 
-        _lastTitanSpawnTime = Time.time;
+        _lastTitanSpawnTime = Time.time - m_TitanScriptable.CooldownTime;
         _titanPrimaryTarget = this;
     }
 
