@@ -161,6 +161,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ToggleTitan
       objectReference: {fileID: 0}
+    - target: {fileID: 2468664789107978190, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2468664789107978190, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8142235929179572979, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
       propertyPath: m_text
       value: Titan
@@ -245,6 +253,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9037059490625810437, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 9cee1fc1e579b294eb71a2aa537968ac, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -304,6 +316,14 @@ PrefabInstance:
     - target: {fileID: 1090906865493683706, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
       propertyPath: m_Name
       value: ToggleWarrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 2468664789107978190, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 2468664789107978190, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 8142235929179572979, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
       propertyPath: m_text
@@ -389,6 +409,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9037059490625810437, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 056c5bf1c67c8f247ab9c381aa4bdcad, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1488,9 +1512,9 @@ RectTransform:
   m_Children:
   - {fileID: 1530469662}
   - {fileID: 1078076984}
+  - {fileID: 1706443318}
   - {fileID: 2028371258}
   - {fileID: 1834717071}
-  - {fileID: 1706443318}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1513,7 +1537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1706443318
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2021,7 +2045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2028371258
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2364,6 +2388,10 @@ PrefabInstance:
     - target: {fileID: 8142235929179572979, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
       propertyPath: m_text
       value: Worker
+      objectReference: {fileID: 0}
+    - target: {fileID: 8142235929179572979, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8347133348362273345, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
       propertyPath: m_Pivot.x
