@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Utils;
 
@@ -43,22 +41,26 @@ public class Minion : LifeForm
 
     private new void Update()
     {
+        if (!GameManager.Instance.IsGameActive) return;
+
         base.Update();
         if (_currentTarget == null) 
-        _currentTarget = GetTarget();
+            _currentTarget = GetTarget();
         transform.LookAt(_currentTarget.transform);
 
         _canHitTarget = false;
-        if (Physics.Raycast(gameObject.transform.position, Vector3.forward, out RaycastHit hitInfo, m_AttackRange))
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, m_AttackRange))
         {
             if (hitInfo.transform.TryGetComponent<LifeForm>(out var lifeForm))
             {
-                // If it's the ally hive, we don't want to damage it
-                if (lifeForm is Hive && Compare.GameObjects(lifeForm.gameObject, TargetManager.Instance.GetHive(HiveTarget.Ally).gameObject)) 
+                // If it's the ParentHive hive, we don't want to damage it
+                if (lifeForm is Hive && Compare.GameObjects(lifeForm.gameObject, ParentHive.gameObject)) 
                     return;
                 // If it's an ally minion, we don't want to damage it
                 if (lifeForm.gameObject.TryGetComponent<Minion>(out var m) && Compare.GameObjects(ParentHive.gameObject, m.ParentHive.gameObject))
                     return;
+
+                //Debug.Log(gameObject.name + " -> " + lifeForm);
 
                 _canHitTarget = true;
                 if (Time.time - _lastAttackTime >= m_AttackRate)
@@ -74,9 +76,14 @@ public class Minion : LifeForm
     {
         Destroy(gameObject);
 
-        bool isPrimaryTarget = Compare.GameObjects(gameObject, ParentHive.GetPrimaryTarget(SpawnType).gameObject);
         // Define a new Primary Target if this instance was the current one. We also need to redefine it in the next frame.
         // Otherwise, the Primary target will still be this one
+        bool isPrimaryTarget = Compare.GameObjects(gameObject, ParentHive.GetPrimaryTarget(SpawnType).gameObject);
         if (isPrimaryTarget) ParentHive.AddTargetToRedefine(SpawnType);
+    }
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward * m_AttackRange);
     }
 }

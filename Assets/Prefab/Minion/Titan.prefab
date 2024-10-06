@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 483503907165289180, guid: 6375e3e79c52c83438f99a970cb0bb93, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2548949482440524485, guid: 6375e3e79c52c83438f99a970cb0bb93, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -84,6 +88,10 @@ PrefabInstance:
       propertyPath: m_PrimaryTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3361005837035643937, guid: 6375e3e79c52c83438f99a970cb0bb93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3456020393304056178, guid: 6375e3e79c52c83438f99a970cb0bb93, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -93,7 +101,8 @@ PrefabInstance:
       value: Titan
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3361005837035643937, guid: 6375e3e79c52c83438f99a970cb0bb93, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6375e3e79c52c83438f99a970cb0bb93, type: 3}

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum GameState
@@ -34,15 +32,21 @@ public class GameManager : MonoBehaviour
         _currentGameState = GameState.InGame;
     }
 
-    public void GameOver()
+    public void EndGame()
     {
         _currentGameState = GameState.EndGame;
-        Debug.Log("Game over");
+        m_CanvaEndGame.gameObject.SetActive(true);
+    }
+
+    public void GameOver()
+    {
+        EndGame();
+        m_DefeatTitle.gameObject.SetActive(true);
     }
 
     public void Win()
     {
-        _currentGameState = GameState.EndGame;
-        Debug.Log("You Win");
+        EndGame();
+        m_VictoryTitle.gameObject.SetActive(true);
     }
 }

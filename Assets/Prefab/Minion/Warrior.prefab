@@ -76,12 +76,17 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 08600328211fd6443b20efd5900a3a98, type: 2}
+    - target: {fileID: 3982240641368124005, guid: 1152a105b64f2f64b991c22addca55f1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5720777157180513911, guid: 1152a105b64f2f64b991c22addca55f1, type: 3}
       propertyPath: m_Name
       value: Warrior
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2257064266773394584, guid: 1152a105b64f2f64b991c22addca55f1, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1152a105b64f2f64b991c22addca55f1, type: 3}

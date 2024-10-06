@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8864805395637418893}
   - component: {fileID: 8527181325405256845}
   - component: {fileID: 5133622852923499248}
+  - component: {fileID: 7889171129229936684}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,6 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bc68d40e13b4341b3e2a2c6eaaa46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_CanvaEndGame: {fileID: 0}
+  m_VictoryTitle: {fileID: 0}
+  m_DefeatTitle: {fileID: 0}
 --- !u!114 &5133622852923499248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,3 +63,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AllyHive: {fileID: 0}
   m_EnemyHive: {fileID: 0}
+--- !u!114 &7889171129229936684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607216057871442840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857cdbcd934d7f44e9c604966034e2f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
