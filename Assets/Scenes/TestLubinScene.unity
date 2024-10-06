@@ -2267,33 +2267,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1620194040202802801, guid: 1270704694ef6214c82d89a4f3ae2c58, type: 3}
-      propertyPath: m_TitansSpawnerActivated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1620194040202802801, guid: 1270704694ef6214c82d89a4f3ae2c58, type: 3}
-      propertyPath: m_WorkersSpawnerActivated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1620194040202802801, guid: 1270704694ef6214c82d89a4f3ae2c58, type: 3}
-      propertyPath: m_WarriorsSpawnerActivated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1620194040202802801, guid: 1270704694ef6214c82d89a4f3ae2c58, type: 3}
-      propertyPath: m_OnDying.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1620194040202802801, guid: 1270704694ef6214c82d89a4f3ae2c58, type: 3}
       propertyPath: m_OnDying.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 657751331}
-    - target: {fileID: 1620194040202802801, guid: 1270704694ef6214c82d89a4f3ae2c58, type: 3}
-      propertyPath: m_OnDying.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Win
-      objectReference: {fileID: 0}
-    - target: {fileID: 1620194040202802801, guid: 1270704694ef6214c82d89a4f3ae2c58, type: 3}
-      propertyPath: m_OnDying.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 2627092612674987207, guid: 1270704694ef6214c82d89a4f3ae2c58, type: 3}
       propertyPath: m_Name
       value: EnemyHive
