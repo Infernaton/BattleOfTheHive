@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Titan
   m_EditorClassIdentifier: 
   Range: 4
-  Rate: 3
-  Damage: 10
+  Rate: 0.5
+  Damage: 1
+  isStoppingForAttack: 0
   DamageType: 1

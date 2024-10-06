@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Range: 2
   Rate: 1
-  Damage: 3
+  Damage: 10
+  isStoppingForAttack: 0
   DamageType: 0
