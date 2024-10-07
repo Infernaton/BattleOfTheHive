@@ -186,18 +186,21 @@ public class Hive : LifeForm
         m_WarriorsSpawnerActivated = false;
         m_SentinelsSpawnerActivated = false;
         m_WorkersSpawnerActivated = true;
+        _lastWorkerSpawnTime = Time.time;
     }
     public void ToggleWarriorSpawner()
     {
         m_WarriorsSpawnerActivated = true;
         m_SentinelsSpawnerActivated = false;
         m_WorkersSpawnerActivated = false;
+        _lastWarriorSpawnTime = Time.time;
     }
     public void ToggleSentinelSpawner()
     {
         m_WarriorsSpawnerActivated = false;
         m_SentinelsSpawnerActivated = true;
         m_WorkersSpawnerActivated = false;
+        _lastSentinelSpawnTime = Time.time;
     }
     #endregion
 }
