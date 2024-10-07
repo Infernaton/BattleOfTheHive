@@ -29,6 +29,7 @@ public class Hive : LifeForm
     [SerializeField] bool m_IsSpawnerActivated = true;
 
     private List<SpawnType> _redefineTarget = new();
+    private bool _isAllyHive;
 
     public LifeForm GetPrimaryTarget(SpawnType type)
     {
@@ -75,6 +76,8 @@ public class Hive : LifeForm
     {
         base.Start();
 
+        _isAllyHive = Compare.GameObjects(gameObject, TargetManager.Instance.GetHive(HiveTarget.Ally).gameObject);
+
         _lastWorkerSpawnTime = Time.time - m_WorkerScriptable.CooldownTime;
         _workerPrimaryTarget = this;
 
@@ -91,7 +94,7 @@ public class Hive : LifeForm
 
         UpdatePrimaryTarget();
 
-        UpdateUI();
+        if (_isAllyHive) UpdateUI();
 
         #region Spawner Related
         if (!m_IsSpawnerActivated || !GameManager.Instance.IsGameActive) return;
@@ -144,13 +147,6 @@ public class Hive : LifeForm
         script.UICooldownImage.transform.localScale = new Vector3(Mathf.Lerp(0, 1, val), script.UICooldownImage.transform.localScale.y, script.UICooldownImage.transform.localScale.z);
     }
 
-    private List<Material> GetMaterialList(ScriptableSpawnType spawn)
-    {
-        if (Compare.GameObjects(gameObject, TargetManager.Instance.GetHive(HiveTarget.Ally).gameObject))
-            return spawn.AllyMaterial;
-        return spawn.EnemyMaterial;
-    }
-
     private void Spawn(ScriptableSpawnType spawn, Transform spawnerLocation)
     {
         Minion newSpawn = Instantiate(spawn.MinionGameObject, spawnerLocation);
@@ -158,7 +154,7 @@ public class Hive : LifeForm
         newSpawn.SpawnType = spawn.Type;
         newSpawn.name = spawn.Type + "" + spawnerLocation.childCount;
 
-        List<Material> mat = GetMaterialList(spawn);
+        List<Material> mat = _isAllyHive ? spawn.AllyMaterial : spawn.EnemyMaterial;
         for (int i = 0; i < mat.Count; i++) 
         {
             Material[] m = newSpawn.Renderer.materials;
