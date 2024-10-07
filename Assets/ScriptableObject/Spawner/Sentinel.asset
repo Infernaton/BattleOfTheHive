@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sentinel
   m_EditorClassIdentifier: 
   MinionGameObject: {fileID: 8062096018479478968, guid: c24cbce4b119c774aa8c7ca402b7b7eb, type: 3}
-  CooldownTime: 5
+  CooldownTime: 2.5
   Type: 2
   AllyMaterial:
   - {fileID: 2100000, guid: 0433846c3890a664492ff87f0089bc3e, type: 2}

@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TextMeshPro: {fileID: 4347663751495717261}
-  m_HealthBase: 500
+  m_HealthBase: 100
   m_OnDying:
     m_PersistentCalls:
       m_Calls:

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Warrior
   m_EditorClassIdentifier: 
   MinionGameObject: {fileID: 2572891984077624254, guid: 6375e3e79c52c83438f99a970cb0bb93, type: 3}
-  CooldownTime: 2.5
+  CooldownTime: 1.25
   Type: 1
   AllyMaterial:
   - {fileID: 2100000, guid: 6de0b4a9fa4a28241927c8e8b9d70733, type: 2}

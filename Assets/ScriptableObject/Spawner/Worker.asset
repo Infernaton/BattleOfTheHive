@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Worker
   m_EditorClassIdentifier: 
   MinionGameObject: {fileID: 1315822256473162503, guid: 1152a105b64f2f64b991c22addca55f1, type: 3}
-  CooldownTime: 0.5
+  CooldownTime: 0.25
   Type: 0
   AllyMaterial:
   - {fileID: 2100000, guid: 231a60770b210b745aa0d88927506837, type: 2}
