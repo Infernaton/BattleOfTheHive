@@ -8,21 +8,21 @@ public class Hive : LifeForm
 {
     [Header("Worker")]
     [SerializeField] ScriptableSpawnType m_WorkerScriptable;
-    [SerializeField] GameObject m_WorkersSpawner;
+    public GameObject m_WorkersSpawner;
     [SerializeField] bool m_WorkersSpawnerActivated;
     private float _lastWorkerSpawnTime;
     private LifeForm _workerPrimaryTarget;
 
     [Header("Warrior")]
     [SerializeField] ScriptableSpawnType m_WarriorScriptable;
-    [SerializeField] GameObject m_WarriorsSpawner;
+    public GameObject m_WarriorsSpawner;
     [SerializeField] bool m_WarriorsSpawnerActivated;
     private float _lastWarriorSpawnTime;
     private LifeForm _warriorPrimaryTarget;
 
     [Header("Sentinel")]
     [SerializeField] ScriptableSpawnType m_SentinelScriptable;
-    [SerializeField] GameObject m_SentinelsSpawner;
+    public GameObject m_SentinelsSpawner;
     [SerializeField] bool m_SentinelsSpawnerActivated;
     private float _lastSentinelSpawnTime;
     private LifeForm _sentinelPrimaryTarget;
