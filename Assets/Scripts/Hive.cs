@@ -159,7 +159,9 @@ public class Hive : LifeForm
 
     private void Spawn(ScriptableSpawnType spawn, Transform spawnerLocation)
     {
-        Minion newSpawn = Instantiate(spawn.MinionGameObject, spawnerLocation);
+        Vector3 pos = Vector3.Lerp(m_SentinelsSpawner.transform.position, m_WarriorsSpawner.transform.position, UnityEngine.Random.value);
+        Minion newSpawn = Instantiate(spawn.MinionGameObject, pos, Quaternion.identity);
+        newSpawn.transform.parent = spawnerLocation;
         newSpawn.ParentHive = this;
         newSpawn.SpawnType = spawn.Type;
         newSpawn.name = spawn.Type + "" + spawnerLocation.childCount;
