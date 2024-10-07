@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Utils;
@@ -45,7 +46,7 @@ public class Minion : LifeForm
             _currentTarget = GetTarget();
         transform.LookAt(_currentTarget.transform);
 
-        List<LifeForm> hit = m_Stats.GetLifeFormHit(transform, hits =>
+        Func<List<Collider>, List<LifeForm>> filter = hits =>
         {
             List<LifeForm> filterHit = new();
             hits.ForEach(collider =>
@@ -65,12 +66,15 @@ public class Minion : LifeForm
                 }
             });
             return filterHit;
-        });
+        };
+
+        List<LifeForm> hit = m_Stats.GetLifeFormHit(transform, m_Stats.DetectRange, filter);
 
         _canHitTarget = !m_Stats.isStoppingForAttack && hit.Count > 0;
 
         if (hit.Count > 0 && Time.time - _lastAttackTime >= m_Stats.Rate)
         {
+            if (m_Stats.AttackRange > m_Stats.DetectRange) hit = m_Stats.GetLifeFormHit(transform, m_Stats.AttackRange, filter);
             m_AttackParticle.Play();
             hit.ForEach(lifeform => lifeform.LoseHP(m_Stats.Damage));
             _lastAttackTime = Time.time;
@@ -89,6 +93,9 @@ public class Minion : LifeForm
 
     public void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward * m_Stats.Range);
+        Gizmos.color = Color.white;
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward * m_Stats.AttackRange);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward * m_Stats.DetectRange);
     }
 }

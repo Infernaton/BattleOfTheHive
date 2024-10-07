@@ -15,7 +15,8 @@ public enum DamageType
 public class MinionStats : ScriptableObject
 {
     [Header("Attack")]
-    public float Range;
+    public float DetectRange;
+    public float AttackRange;
     public float Rate;
     public float Damage;
 
@@ -26,16 +27,16 @@ public class MinionStats : ScriptableObject
     [Header("Other")]
     public float MvtSpeed;
 
-    public List<LifeForm> GetLifeFormHit(Transform origin, Func<List<Collider>, List<LifeForm>> filter)
+    public List<LifeForm> GetLifeFormHit(Transform origin, float range, Func<List<Collider>, List<LifeForm>> filter)
     {
         switch(DamageType)
         {
             case DamageType.Single:
-                if(Physics.Raycast(origin.position, origin.forward, out RaycastHit hitInfo, Range))
+                if(Physics.Raycast(origin.position, origin.forward, out RaycastHit hitInfo, range))
                     return filter(new() { hitInfo.collider });
                 return new();
             case DamageType.ArroundAttacker:
-                List<Collider> l = Physics.OverlapSphere(origin.position, Range).ToList();
+                List<Collider> l = Physics.OverlapSphere(origin.position, range).ToList();
                 return filter(l);
             default:
                 return new();

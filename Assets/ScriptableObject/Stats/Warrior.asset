@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde823391d718764481a88d357464c80, type: 3}
   m_Name: Warrior
   m_EditorClassIdentifier: 
-  Range: 2
+  DetectRange: 2
+  AttackRange: 2
   Rate: 1
   Damage: 10
   isStoppingForAttack: 0

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde823391d718764481a88d357464c80, type: 3}
   m_Name: Worker
   m_EditorClassIdentifier: 
-  Range: 1
+  DetectRange: 1
+  AttackRange: 1
   Rate: 0.5
   Damage: 1
   isStoppingForAttack: 0
