@@ -12,6 +12,8 @@ public class LifeForm : MonoBehaviour
     protected float _currentHealth;
     private bool _isDead;
 
+    public MeshRenderer Renderer;
+
     public float GetCurrentHealth() => _currentHealth;
 
     protected void Start()

@@ -13,8 +13,6 @@ public class Minion : LifeForm
     private bool _canHitTarget;
     private float _lastAttackTime;
 
-    public MeshRenderer Renderer;
-
     [HideInInspector] public Hive ParentHive;
     [HideInInspector] public SpawnType SpawnType;
 

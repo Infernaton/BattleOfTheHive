@@ -163,6 +163,10 @@ PrefabInstance:
       propertyPath: lengthInSec
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2598496440037459788, guid: af6aa58eace13914e987fabeeda71adb, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4062476931982761995, guid: af6aa58eace13914e987fabeeda71adb, type: 3}
       propertyPath: m_Name
       value: WorkerAttack
