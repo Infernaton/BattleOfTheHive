@@ -6,6 +6,7 @@ public class Minion : LifeForm
 {
     [SerializeField] MinionStats m_Stats;
     [SerializeField] SpawnType m_PrimaryTarget;
+    [SerializeField] ParticleSystem m_AttackParticle;
 
     private LifeForm _currentTarget;
     private Rigidbody _rg;
@@ -71,8 +72,9 @@ public class Minion : LifeForm
 
         _canHitTarget = !m_Stats.isStoppingForAttack && hit.Count > 0;
 
-        if (Time.time - _lastAttackTime >= m_Stats.Rate)
+        if (hit.Count > 0 && Time.time - _lastAttackTime >= m_Stats.Rate)
         {
+            m_AttackParticle.Play();
             hit.ForEach(lifeform => lifeform.LoseHP(m_Stats.Damage));
             _lastAttackTime = Time.time;
         }
