@@ -33,9 +33,10 @@ public class GameManager : MonoBehaviour
         switch (_currentGameState)
         {
             case GameState.Menu:
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButtonDown(0)){
                     _currentGameState = GameState.InGame;
                     MenuManager.Instance.LaunchGame();
+                }
                 break;
             default:
                 break;
