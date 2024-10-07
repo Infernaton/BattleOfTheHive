@@ -230,6 +230,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  Renderer: {fileID: 0}
+  SpawnType: 0
   m_WorkerScriptable: {fileID: 11400000, guid: 75bb69cb94d270a4c8bd44e0736a42bb, type: 2}
   m_WorkersSpawner: {fileID: 1566991746919024597}
   m_WorkersSpawnerActivated: 0
@@ -555,7 +557,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5867822579827197394}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: de471f591fcc5cf4898b77b505aaf20b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

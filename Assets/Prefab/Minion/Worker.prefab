@@ -65,12 +65,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  Renderer: {fileID: 7469919117108375529}
+  SpawnType: 0
   m_Stats: {fileID: 11400000, guid: 36ed44b80249e534f957306229839519, type: 2}
   m_PrimaryTarget: 1
   m_AttackParticle: {fileID: 5541445420617451076}
-  Renderer: {fileID: 7469919117108375529}
   ParentHive: {fileID: 0}
-  SpawnType: 0
 --- !u!54 &8679274919079008788
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &6018616664257941650
 GameObject:
