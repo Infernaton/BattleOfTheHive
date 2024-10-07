@@ -15,5 +15,6 @@ MonoBehaviour:
   Range: 1
   Rate: 0.5
   Damage: 1
-  AttackArroundMinion: 0
+  isStoppingForAttack: 0
   DamageType: 0
+  MvtSpeed: 5

@@ -4,9 +4,7 @@ using Utils;
 
 public class Minion : LifeForm
 {
-    [Header("Other Stats")]
-    [SerializeField] AttackPattern m_AttackPattern;
-    [SerializeField] float m_MovementSpeed;
+    [SerializeField] MinionStats m_Stats;
     [SerializeField] SpawnType m_PrimaryTarget;
 
     private LifeForm _currentTarget;
@@ -37,7 +35,7 @@ public class Minion : LifeForm
     private void FixedUpdate()
     {
         // If the target is can be hit, we don't need to move further
-        if (!_canHitTarget && GameManager.Instance.IsGameActive) _rg.MovePosition(transform.position + (m_MovementSpeed * Time.deltaTime) * transform.forward);
+        if (!_canHitTarget && GameManager.Instance.IsGameActive) _rg.MovePosition(transform.position + (m_Stats.MvtSpeed * Time.deltaTime) * transform.forward);
     }
 
     private new void Update()
@@ -49,7 +47,7 @@ public class Minion : LifeForm
             _currentTarget = GetTarget();
         transform.LookAt(_currentTarget.transform);
 
-        List<LifeForm> hit = m_AttackPattern.GetLifeFormHit(transform, hits =>
+        List<LifeForm> hit = m_Stats.GetLifeFormHit(transform, hits =>
         {
             List<LifeForm> filterHit = new();
             hits.ForEach(collider =>
@@ -71,11 +69,11 @@ public class Minion : LifeForm
             return filterHit;
         });
 
-        _canHitTarget = !m_AttackPattern.isStoppingForAttack && hit.Count > 0;
+        _canHitTarget = !m_Stats.isStoppingForAttack && hit.Count > 0;
 
-        if (Time.time - _lastAttackTime >= m_AttackPattern.Rate)
+        if (Time.time - _lastAttackTime >= m_Stats.Rate)
         {
-            hit.ForEach(lifeform => lifeform.LoseHP(m_AttackPattern.Damage));
+            hit.ForEach(lifeform => lifeform.LoseHP(m_Stats.Damage));
             _lastAttackTime = Time.time;
         }
     }
@@ -92,6 +90,6 @@ public class Minion : LifeForm
 
     public void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward * m_AttackPattern.Range);
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward * m_Stats.Range);
     }
 }

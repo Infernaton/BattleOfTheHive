@@ -64,8 +64,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_AttackPattern: {fileID: 11400000, guid: 36ed44b80249e534f957306229839519, type: 2}
-  m_MovementSpeed: 5
+  m_Stats: {fileID: 11400000, guid: 36ed44b80249e534f957306229839519, type: 2}
   m_PrimaryTarget: 1
   Renderer: {fileID: 7469919117108375529}
   ParentHive: {fileID: 0}
