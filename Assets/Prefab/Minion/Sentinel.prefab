@@ -258,7 +258,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: baae96b0546bd1b458443daffd325da3, type: 2}
     - target: {fileID: 5297632236771609261, guid: 6375e3e79c52c83438f99a970cb0bb93, type: 3}
       propertyPath: m_Mass
-      value: 5
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8311919958717728361, guid: 6375e3e79c52c83438f99a970cb0bb93, type: 3}
       propertyPath: m_Size.x
@@ -278,7 +278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9120434100005408462, guid: 6375e3e79c52c83438f99a970cb0bb93, type: 3}
       propertyPath: m_Name
-      value: Titan
+      value: Sentinel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

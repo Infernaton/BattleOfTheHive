@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 437196ddf1c8e2a489dd8891fdcf494c, type: 3}
-  m_Name: Titan
+  m_Name: Sentinel
   m_EditorClassIdentifier: 
   MinionGameObject: {fileID: 8062096018479478968, guid: c24cbce4b119c774aa8c7ca402b7b7eb, type: 3}
   CooldownTime: 5

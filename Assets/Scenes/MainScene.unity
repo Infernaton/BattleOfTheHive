@@ -142,12 +142,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 2028371258}
     m_Modifications:
     - target: {fileID: 284603894578195416, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 2129853641}
+    - target: {fileID: 284603894578195416, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2139824296}
     - target: {fileID: 284603894578195416, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleTitanSpawner
+      value: ToggleSentinelSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 284603894578195416, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -159,7 +163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1090906865493683706, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
       propertyPath: m_Name
-      value: ToggleTitan
+      value: ToggleSentinel
       objectReference: {fileID: 0}
     - target: {fileID: 2468664789107978190, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
       propertyPath: m_SizeDelta.x
@@ -171,7 +175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8142235929179572979, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
       propertyPath: m_text
-      value: Titan
+      value: Sentinel
       objectReference: {fileID: 0}
     - target: {fileID: 8347133348362273345, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
       propertyPath: m_Pivot.x
@@ -2045,7 +2049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2028371258
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2068,6 +2072,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2129853641 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1698790729328169921, guid: fd5ac6b9bd528624b8feeb7b30340548, type: 3}
+  m_PrefabInstance: {fileID: 144352586}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2139824295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2269,6 +2284,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 190238332}
     - target: {fileID: 5133622852923499248, guid: dbe01fdf440392848be0967337be8868, type: 3}
+      propertyPath: m_SentinelSelectElement
+      value: 
+      objectReference: {fileID: 144352589}
+    - target: {fileID: 5133622852923499248, guid: dbe01fdf440392848be0967337be8868, type: 3}
       propertyPath: m_WorkerCooldownElement
       value: 
       objectReference: {fileID: 105059595}
@@ -2276,6 +2295,10 @@ PrefabInstance:
       propertyPath: m_WarriorCooldownElement
       value: 
       objectReference: {fileID: 190238331}
+    - target: {fileID: 5133622852923499248, guid: dbe01fdf440392848be0967337be8868, type: 3}
+      propertyPath: m_SentinelCooldownElement
+      value: 
+      objectReference: {fileID: 144352588}
     - target: {fileID: 6607216057871442840, guid: dbe01fdf440392848be0967337be8868, type: 3}
       propertyPath: m_Name
       value: GameManager

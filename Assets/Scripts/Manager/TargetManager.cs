@@ -17,12 +17,12 @@ public class TargetManager : MonoBehaviour
     [Header("UICooldownTarget")]
     [SerializeField] private Image m_WorkerCooldownElement;
     [SerializeField] private Image m_WarriorCooldownElement;
-    [SerializeField] private Image m_TitanCooldownElement;
+    [SerializeField] private Image m_SentinelCooldownElement;
 
     [Header("UISelectedTarget")]
     [SerializeField] private RawImage m_WorkerSelectElement;
     [SerializeField] private RawImage m_WarriorSelectElement;
-    [SerializeField] private RawImage m_TitanSelectElement;
+    [SerializeField] private RawImage m_SentinelSelectElement;
 
     public static TargetManager Instance; // A static reference to the TargetManager instance
 
@@ -59,7 +59,7 @@ public class TargetManager : MonoBehaviour
         {
             SpawnType.Worker => m_WorkerCooldownElement,
             SpawnType.Warrior => m_WarriorCooldownElement,
-            SpawnType.Titan => m_TitanCooldownElement,
+            SpawnType.Sentinel => m_SentinelCooldownElement,
             _ => null,
         };
     }
@@ -69,7 +69,7 @@ public class TargetManager : MonoBehaviour
         {
             SpawnType.Worker => m_WorkerSelectElement,
             SpawnType.Warrior => m_WarriorSelectElement,
-            SpawnType.Titan => m_TitanSelectElement,
+            SpawnType.Sentinel => m_SentinelSelectElement,
             _ => null,
         };
     }

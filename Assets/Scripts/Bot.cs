@@ -18,7 +18,7 @@ public class Bot : MonoBehaviour
                 m_Hive.ToggleWarriorSpawner();
                 break;
             case 2:
-                m_Hive.ToggleTitanSpawner();
+                m_Hive.ToggleSentinelSpawner();
                 break;
         }
     }
@@ -38,7 +38,7 @@ public class Bot : MonoBehaviour
                     m_Hive.ToggleWarriorSpawner();
                     break;
                 case 2:
-                    m_Hive.ToggleTitanSpawner();
+                    m_Hive.ToggleSentinelSpawner();
                     break;
             }
         }

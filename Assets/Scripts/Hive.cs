@@ -18,12 +18,12 @@ public class Hive : LifeForm
     private float _lastWarriorSpawnTime;
     private LifeForm _warriorPrimaryTarget;
 
-    [Header("Titan")]
-    [SerializeField] ScriptableSpawnType m_TitanScriptable;
-    [SerializeField] GameObject m_TitansSpawner;
-    [SerializeField] bool m_TitansSpawnerActivated;
-    private float _lastTitanSpawnTime;
-    private LifeForm _titanPrimaryTarget;
+    [Header("Sentinel")]
+    [SerializeField] ScriptableSpawnType m_SentinelScriptable;
+    [SerializeField] GameObject m_SentinelsSpawner;
+    [SerializeField] bool m_SentinelsSpawnerActivated;
+    private float _lastSentinelSpawnTime;
+    private LifeForm _sentinelPrimaryTarget;
 
     [Header("Other")]
     [SerializeField] bool m_IsSpawnerActivated = true;
@@ -36,7 +36,7 @@ public class Hive : LifeForm
         {
             SpawnType.Worker => _workerPrimaryTarget,
             SpawnType.Warrior => _warriorPrimaryTarget,
-            SpawnType.Titan => _titanPrimaryTarget,
+            SpawnType.Sentinel => _sentinelPrimaryTarget,
             _ => this
         };
         return o;
@@ -58,9 +58,9 @@ public class Hive : LifeForm
                        ? m_WarriorsSpawner.transform.GetChild(0).GetComponent<Minion>()
                        : this;
                 break;
-            case SpawnType.Titan:
-                _titanPrimaryTarget = m_TitansSpawner.transform.childCount > 0
-                       ? m_TitansSpawner.transform.GetChild(0).GetComponent<Minion>()
+            case SpawnType.Sentinel:
+                _sentinelPrimaryTarget = m_SentinelsSpawner.transform.childCount > 0
+                       ? m_SentinelsSpawner.transform.GetChild(0).GetComponent<Minion>()
                        : this;
                 break;
         }
@@ -81,8 +81,8 @@ public class Hive : LifeForm
         _lastWarriorSpawnTime = Time.time - m_WarriorScriptable.CooldownTime;
         _warriorPrimaryTarget = this;
 
-        _lastTitanSpawnTime = Time.time - m_TitanScriptable.CooldownTime;
-        _titanPrimaryTarget = this;
+        _lastSentinelSpawnTime = Time.time - m_SentinelScriptable.CooldownTime;
+        _sentinelPrimaryTarget = this;
     }
 
     private new void Update()
@@ -108,10 +108,10 @@ public class Hive : LifeForm
             _lastWarriorSpawnTime = Time.time;
         }
 
-        if (m_TitansSpawnerActivated && Time.time - _lastTitanSpawnTime >= m_TitanScriptable.CooldownTime)
+        if (m_SentinelsSpawnerActivated && Time.time - _lastSentinelSpawnTime >= m_SentinelScriptable.CooldownTime)
         {
-            Spawn(m_TitanScriptable, m_TitansSpawner.transform);
-            _lastTitanSpawnTime = Time.time;
+            Spawn(m_SentinelScriptable, m_SentinelsSpawner.transform);
+            _lastSentinelSpawnTime = Time.time;
         }
         #endregion
     }
@@ -134,8 +134,8 @@ public class Hive : LifeForm
         m_WarriorScriptable.UISelectedImage.gameObject.SetActive(m_WarriorsSpawnerActivated);
         UpdateByScriptable(m_WarriorScriptable, Time.time - _lastWarriorSpawnTime);
 
-        m_TitanScriptable.UISelectedImage.gameObject.SetActive(m_TitansSpawnerActivated);
-        UpdateByScriptable(m_TitanScriptable, Time.time - _lastTitanSpawnTime);
+        m_SentinelScriptable.UISelectedImage.gameObject.SetActive(m_SentinelsSpawnerActivated);
+        UpdateByScriptable(m_SentinelScriptable, Time.time - _lastSentinelSpawnTime);
     }
 
     private void UpdateByScriptable(ScriptableSpawnType script, float currentCooldown)
@@ -176,19 +176,19 @@ public class Hive : LifeForm
     public void ToggleWorkerSpawner()
     {
         m_WarriorsSpawnerActivated = false;
-        m_TitansSpawnerActivated = false;
+        m_SentinelsSpawnerActivated = false;
         m_WorkersSpawnerActivated = true;
     }
     public void ToggleWarriorSpawner()
     {
         m_WarriorsSpawnerActivated = true;
-        m_TitansSpawnerActivated = false;
+        m_SentinelsSpawnerActivated = false;
         m_WorkersSpawnerActivated = false;
     }
-    public void ToggleTitanSpawner()
+    public void ToggleSentinelSpawner()
     {
         m_WarriorsSpawnerActivated = false;
-        m_TitansSpawnerActivated = true;
+        m_SentinelsSpawnerActivated = true;
         m_WorkersSpawnerActivated = false;
     }
     #endregion

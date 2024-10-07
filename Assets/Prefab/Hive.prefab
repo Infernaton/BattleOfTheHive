@@ -236,9 +236,9 @@ MonoBehaviour:
   m_WarriorScriptable: {fileID: 11400000, guid: 633ef174342fc9047bf988d3f40d0cb4, type: 2}
   m_WarriorsSpawner: {fileID: 8645448678826961867}
   m_WarriorsSpawnerActivated: 0
-  m_TitanScriptable: {fileID: 11400000, guid: 4ee5a2d584589fb41a83c490eabbc747, type: 2}
-  m_TitansSpawner: {fileID: 5262800932713640812}
-  m_TitansSpawnerActivated: 0
+  m_SentinelScriptable: {fileID: 11400000, guid: 4ee5a2d584589fb41a83c490eabbc747, type: 2}
+  m_SentinelsSpawner: {fileID: 5262800932713640812}
+  m_SentinelsSpawnerActivated: 0
   m_IsSpawnerActivated: 1
 --- !u!54 &1241505643775921606
 Rigidbody:
@@ -462,7 +462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 992969307993655890}
   m_Layer: 0
-  m_Name: TitanSpawner
+  m_Name: SentinelSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

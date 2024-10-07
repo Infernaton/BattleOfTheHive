@@ -6,7 +6,7 @@ namespace Utils
     {
         Worker,
         Warrior,
-        Titan
+        Sentinel
     }
 
     public class Compare

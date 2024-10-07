@@ -16,7 +16,7 @@ class RotationOrientation
     }
 }
 
-public class TitanRotateTorus : MonoBehaviour
+public class SentinelRotateTorus : MonoBehaviour
 {
     [SerializeField] Transform m_LargeTorus;
     [SerializeField] List<Transform> m_RandomRotationTorus;
