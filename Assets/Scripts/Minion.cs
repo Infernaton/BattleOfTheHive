@@ -14,7 +14,6 @@ public class Minion : LifeForm
     private float _lastAttackTime;
 
     [HideInInspector] public Hive ParentHive;
-    [HideInInspector] public SpawnType SpawnType;
 
     LifeForm GetTarget()
     {

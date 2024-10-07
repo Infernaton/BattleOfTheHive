@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using Utils;
 
 public class LifeForm : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class LifeForm : MonoBehaviour
     private bool _isDead;
 
     public MeshRenderer Renderer;
+
+    [HideInInspector] public SpawnType SpawnType;
 
     public float GetCurrentHealth() => _currentHealth;
 

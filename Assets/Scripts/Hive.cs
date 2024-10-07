@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using Utils;
 
@@ -40,6 +42,7 @@ public class Hive : LifeForm
             SpawnType.Sentinel => _sentinelPrimaryTarget,
             _ => this
         };
+        if (o == this) o = SearchOtherPrimaryTarget(type);
         return o;
     }
 
@@ -66,6 +69,12 @@ public class Hive : LifeForm
                 break;
         }
     }
+    public LifeForm SearchOtherPrimaryTarget(SpawnType type)
+    {
+        List<LifeForm> entity = new() { _workerPrimaryTarget, _warriorPrimaryTarget, _sentinelPrimaryTarget };
+        entity = entity.Where(l => l.SpawnType != type || l.SpawnType != SpawnType.Hive ).ToList();
+        return entity.Count > 0 ? entity[0] : this;
+    }
 
     public void AddTargetToRedefine(SpawnType add)
     {
@@ -77,6 +86,7 @@ public class Hive : LifeForm
         base.Start();
 
         _isAllyHive = Compare.GameObjects(gameObject, TargetManager.Instance.GetHive(HiveTarget.Ally).gameObject);
+        SpawnType = SpawnType.Hive;
 
         _lastWorkerSpawnTime = Time.time - m_WorkerScriptable.CooldownTime;
         _workerPrimaryTarget = this;
@@ -164,7 +174,7 @@ public class Hive : LifeForm
 
         //Set new Primary Target if there's none or if it's this Hive itself
         LifeForm getCurrentPrimaryTarget = GetPrimaryTarget(spawn.Type);
-        if (Compare.GameObjects(getCurrentPrimaryTarget.gameObject, gameObject)) 
+        if (GetPrimaryTarget(spawn.Type).SpawnType != spawn.Type) 
             DefinePrimaryTarget(spawn.Type);
     }
 
